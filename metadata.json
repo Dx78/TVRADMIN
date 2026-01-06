@@ -1,0 +1,5 @@
+{
+  "name": "Gestor de Reportes de Ventas",
+  "description": "Aplicación para el registro y análisis de ventas por canal y tipo, con integración de IA para insights.",
+  "requestFramePermissions": []
+}

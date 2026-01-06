@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
-import { LayoutDashboard, PlusCircle, List, Menu, X, Calculator, Receipt, ChevronRight, Hotel, LogOut, TrendingUp, Truck, UserCircle, Calendar, Lock, LockOpen, Settings as SettingsIcon, Loader2 } from 'lucide-react';
+import { LayoutDashboard, PlusCircle, List, Menu, X, Calculator, Receipt, ChevronRight, Hotel, LogOut, TrendingUp, Truck, UserCircle, Calendar, Lock, Unlock, Settings as SettingsIcon, Loader2 } from 'lucide-react';
 import SaleForm from './components/SaleForm';
 import SalesList from './components/SalesList';
 import Dashboard from './components/Dashboard';
@@ -62,7 +61,7 @@ const App: React.FC = () => {
             setAppSettings(set);
             
             // Extract unique suppliers from expenses
-            const uniqueSuppliers = Array.from(new Set(e.map(ex => ex.provider))).sort();
+            const uniqueSuppliers = Array.from(new Set((e as Expense[]).map(ex => ex.provider))).sort();
             if(uniqueSuppliers.length > 0) setSuppliers(uniqueSuppliers);
             
         } catch (err) {
@@ -360,7 +359,7 @@ const App: React.FC = () => {
                 </h2>
                 {/* STATUS BADGE */}
                 <div className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide border ${currentDayState.isOpen ? 'bg-emerald-100 text-emerald-700 border-emerald-200' : 'bg-red-100 text-red-700 border-red-200'}`}>
-                    {currentDayState.isOpen ? <span className="flex items-center gap-1"><LockOpen className="w-3 h-3" /> Día Abierto</span> : <span className="flex items-center gap-1"><Lock className="w-3 h-3" /> Día Cerrado</span>}
+                    {currentDayState.isOpen ? <span className="flex items-center gap-1"><Unlock className="w-3 h-3" /> Día Abierto</span> : <span className="flex items-center gap-1"><Lock className="w-3 h-3" /> Día Cerrado</span>}
                 </div>
               </div>
               <p className="text-slate-500 mt-1 font-medium text-sm">
